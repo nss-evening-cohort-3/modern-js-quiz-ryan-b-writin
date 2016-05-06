@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="quiz.css">
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+<!-- cards containing data on both robots -->
+
+<!-- frame select view -->
+
+  <section id="frames" class="choice frame_select">
+
+    <div class="col-xs-12 text-center prompt">
+      <p>Select frame for:</p> 
+      <strong><p class="champOrChump">CHAMPION</p></strong>
+    </div>
+
+    <div class="container-fluid">
+        <div class="col-xs-4 text-center selection frame_link" next="spec_select" player="Android">
+          <a href="#">
+            <span class="btn__text">Android</span>
+          </a>
+          <p>Androids are bipedal. Not as fragile as drones, not as sturdy as laborers.</p>
+        </div>
+
+        <div class="col-xs-4 text-center selection frame_link" next="spec_select" player="Drone">
+          <a href="#">
+            <span class="btn__text">Drone</span>
+          </a>
+          <p>Drones are light and fast, but fragile and unable to carry heavy weapons.</p>
+        </div>
+
+        <div class="col-xs-4 text-center selection frame_link" next="spec_select" player="Laborer">
+          <a href="#">
+            <span class="btn__text">Laborer</span>
+          </a>
+          <p>Laborers are squat and stout. Very sturdy, very slow, able to carry the heaviest weapons.</p>
+        </div>
+    </div>
+  </section>
+
+<!-- spec select view -->
+
+  <section id="specs" class="choice spec_select">
+
+    <div class="col-xs-12 text-center prompt">
+      <p>Select specification for:</p>
+      <strong><p class="champOrChump">CHAMPION</p></strong>
+    </div>
+    <div class="container-fluid">
+
+      <div class="col-xs-5 text-center selection spec_link" next="weapon_select" player="Military">
+        <a href="#">
+          <span class="btn__text">Military</span>
+        </a>
+        <p>Military spec is more aggressive. More damage! Disable the other machine!</p>
+      </div>
+
+      <div class="col-xs-5 col-xs-offset-2 text-center selection spec_link" player="Industrial" next="weapon_select">
+        <a href="#">
+          <span class="btn__text">Industrial</span>
+        </a>
+        <p>Industrial spec is more defensive. More durability! Outlast your opponent!</p>
+      </div>
+    </div>
+  </section>
+  
+<!-- weapon select view -->
+
+ <section id="weapons" class="choice weapon_select">
+
+    <div class="col-xs-12 text-center prompt weapon_link">
+      <p>Select weapon for:</p>
+      <strong><p class="champOrChump">CHAMPION</p></strong>
+    </div>
+    <div class="container-fluid">
+      
+        <div class="col-xs-4 text-center selection weapon_link" player="Airgun" next="mod_select">
+          <a href="#">
+            <span class="btn__text">Airgun</span>
+          </a>
+          <p>1 damage, +2 evasion</p>
+        </div>
+
+        <div class="col-xs-4 text-center selection weapon_link" player="Blade" next="mod_select">
+          <a href="#">
+            <span class="btn__text">Blade</span>
+          </a>
+          <p>2 damage, +1 evasion</p>
+        </div>
+
+        <div class="col-xs-4 text-center selection weapon_link" player="PulseBeam" next="mod_select">
+          <a href="#">
+            <span class="btn__text">Pulse Beam</span>
+          </a>
+          <p>3 damage, +0 evasion</p>
+        </div>
+
+        <div class="col-xs-4 text-center selection weapon_link" player="Bludgeon" next="mod_select">
+          <a href="#">
+            <span class="btn__text">Bludgeon</span>
+          </a>
+          <p>4 damage, -1 evasion</p>
+        </div>
+
+        <div class="col-xs-4 text-center selection weapon_link" player="Flamethrower" next="mod_select">
+          <a href="#">
+            <span class="btn__text">Flamethrower</span>
+          </a>
+          <p>5 damage, -2 evasion</p>
+        </div>
+
+        <div class="col-xs-4 text-center selection weapon_link" player="Cannon" next="mod_select">
+          <a href="#">
+            <span class="btn__text">Cannon</span>
+          </a>
+          <p>6 damage, evasion disabled</p>
+        </div>
+    </div>
+  </section>
+
+<!-- mod select view -->
+
+ <section id="mods" class="choice mod_select">
+
+    <div class="col-xs-12 text-center prompt">
+      <p>Select mod for:</p>
+      <strong><p class="champOrChump">CHAMPION</p></strong>
+    </div>
+    <div class="container-fluid">
+      
+        <div class="col-xs-4 text-center selection mod_link" player="HeavyArms" next="battle_dome">
+          <a href="#">
+            <span class="btn__text">Heavy Arms</span>
+          </a>
+          <p>+2 damage</p>
+        </div>
+
+        <div class="col-xs-4 text-center selection mod_link" player="FasterProcessor" next="battle_dome">
+          <a href="#">
+            <span class="btn__text">Faster Processor</span>
+          </a>
+          <p>+1 damage, +1 evasion</p>
+        </div>
+
+        <div class="col-xs-4 text-center selection mod_link" player="Nitro Boosters" next="battle_dome">
+          <a href="#">
+            <span class="btn__text">Nitro Boosters</span>
+          </a>
+          <p>+2 evasion</p>
+        </div>
+
+        <div class="col-xs-4 text-center selection mod_link" player="Scrambler" next="battle_dome">
+          <a href="#">
+            <span class="btn__text">Sensor scrambler</span>
+          </a>
+          <p>Every third attack misses</p>
+        </div>
+
+        <div class="col-xs-4 text-center selection mod_link" player="TargetingComputer" next="battle_dome">
+          <a href="#">
+            <span class="btn__text">Targeting computer</span>
+          </a>
+          <p>Enemy evasion -2</p>
+        </div>
+
+        <div class="col-xs-4 text-center selection mod_link" player="ThickPlating" next="battle_dome">
+          <a href="#">
+            <span class="btn__text">Thick Plating</span>
+          </a>
+          <p>+50 Integrity</p>
+        </div>
+    </div>
+  </section>
+
+<!-- battle view -->
+  <section id="dome" class="battle_dome choice">
+    <div class="container">
+      <div class="col-xs-4 col-xs-offset-1 text-center robotCard" id="champ">
+        <h3>Champion</h3>
+        <p class="cardFrame">Frame: -</p>
+        <p class="cardSpec">Specification: -</p>
+        <p class="cardIntegrity">Integrity: -</p>
+        <p class="cardWeapon">Weapon: -</p>
+        <p class="cardMod">Modification: -</p>
+      </div>
+      <div class="col-xs-4 col-xs-offset-2 text-center robotCard" id="chump">
+        <h3>Challenger</h3>
+        <p class="cardFrame2">Frame: -</p>
+        <p class="cardSpec2">Specification: -</p>
+        <p class="cardIntegrity2">Integrity: -</p>
+        <p class="cardWeapon2">Weapon: -</p>
+        <p class="cardMod2">Modification: -</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<!--   <script type="text/javascript" src="javascripts/players.js"></script> -->
+  <script type="text/javascript" src="javascripts/quiz.js"></script>
+</body>
+</html>
