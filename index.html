@@ -8,8 +8,6 @@
 </head>
 <body>
 
-<!-- cards containing data on both robots -->
-
 <!-- frame select view -->
 
   <section id="frames" class="choice frame_select">
@@ -24,7 +22,7 @@
           <a href="#">
             <span class="btn__text">Android</span>
           </a>
-          <p>Androids are bipedal. Not as fragile as drones, not as sturdy as laborers.</p>
+          <p>Androids are bipedal. Not as fragile as drones, not as sturdy as grunts.</p>
         </div>
 
         <div class="col-xs-4 text-center selection frame_link" next="spec_select" player="Drone">
@@ -34,11 +32,11 @@
           <p>Drones are light and fast, but fragile and unable to carry heavy weapons.</p>
         </div>
 
-        <div class="col-xs-4 text-center selection frame_link" next="spec_select" player="Laborer">
+        <div class="col-xs-4 text-center selection frame_link" next="spec_select" player="Grunt">
           <a href="#">
-            <span class="btn__text">Laborer</span>
+            <span class="btn__text">Grunt</span>
           </a>
-          <p>Laborers are squat and stout. Very sturdy, very slow, able to carry the heaviest weapons.</p>
+          <p>Grunts are squat and move on treads. Very sturdy, very slow, able to carry the heaviest weapons.</p>
         </div>
     </div>
   </section>
@@ -137,33 +135,33 @@
           <a href="#">
             <span class="btn__text">Heavy Arms</span>
           </a>
-          <p>+2 damage</p>
+          <p>+2 Damage</p>
         </div>
 
         <div class="col-xs-4 text-center selection mod_link" player="FasterProcessor" next="battle_dome">
           <a href="#">
             <span class="btn__text">Faster Processor</span>
           </a>
-          <p>+1 damage, +1 evasion</p>
+          <p>+1 Damage, +1 Evasion</p>
         </div>
 
-        <div class="col-xs-4 text-center selection mod_link" player="Nitro Boosters" next="battle_dome">
+        <div class="col-xs-4 text-center selection mod_link" player="Boosters" next="battle_dome">
           <a href="#">
-            <span class="btn__text">Nitro Boosters</span>
+            <span class="btn__text">Boosters</span>
           </a>
           <p>+2 evasion</p>
         </div>
 
-        <div class="col-xs-4 text-center selection mod_link" player="Scrambler" next="battle_dome">
+        <div class="col-xs-4 text-center selection mod_link" player="SensorScrambler" next="battle_dome">
           <a href="#">
-            <span class="btn__text">Sensor scrambler</span>
+            <span class="btn__text">Sensor Scrambler</span>
           </a>
-          <p>Every third attack misses</p>
+          <p>Enemy damage -2</p>
         </div>
 
         <div class="col-xs-4 text-center selection mod_link" player="TargetingComputer" next="battle_dome">
           <a href="#">
-            <span class="btn__text">Targeting computer</span>
+            <span class="btn__text">Targeting Computer</span>
           </a>
           <p>Enemy evasion -2</p>
         </div>
@@ -197,12 +195,17 @@
         <p class="cardMod2">Modification: -</p>
       </div>
     </div>
+    <div class ="col-xs-8 col-xs-offset-2" id="outputTarget">
+    </div>
   </section>
 
 
-
   <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-<!--   <script type="text/javascript" src="javascripts/players.js"></script> -->
+  <script type="text/javascript" src="javascripts/players.js"></script>
+  <script type="text/javascript" src="javascripts/frames.js"></script>
+  <script type="text/javascript" src="javascripts/specs.js"></script>
+  <script type="text/javascript" src="javascripts/weapons.js"></script>
+  <script type="text/javascript" src="javascripts/mods.js"></script>
   <script type="text/javascript" src="javascripts/quiz.js"></script>
 </body>
 </html>
