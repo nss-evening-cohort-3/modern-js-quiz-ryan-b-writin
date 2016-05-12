@@ -55,7 +55,7 @@ var RoboBattle = (function(Robattle){
     this.name = "Cannon";
     this.damage = 6;
     this.evasionBonus = -500;
-    this.type = "heavy"
+    this.type = "heavy";
   };
   Robattle.Armory.Cannon.prototype = new Robattle.Armory.Weapon();
 

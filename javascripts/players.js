@@ -27,14 +27,14 @@
         this.mod = chosenMod;
       };
 
-      var whichRobot = "";
+      let whichRobot = "";
       this.toString = function() {
         if (this.chump) {
           whichRobot = "challenger";
         } else {
           whichRobot = "champ";
         }
-        var output = [
+        let output = [
           "The ",
           whichRobot,
           " enters the BattleDome, a(n) ",

@@ -12,22 +12,22 @@
 
     //on clicking a selection, set selected value to player object
     $(".frame_link").click(function(e){
-      var chosenFrame = $(this).attr('player');
+      let chosenFrame = $(this).attr('player');
       which.setFrame(new Robattle.Hangar[chosenFrame]());
     });
 
     $(".spec_link").click(function(e){
-      var chosenSpec = $(this).attr('player');
+      let chosenSpec = $(this).attr('player');
       which.setSpec(new Robattle.Garage[chosenSpec]());
     });
 
     $(".weapon_link").click(function(e){
-      var chosenWeapon = $(this).attr('player');
+      let chosenWeapon = $(this).attr('player');
       which.setWeapon(new Robattle.Armory[chosenWeapon]());
     });
 
     $(".mod_link").click(function(e){
-      var chosenMod = $(this).attr('player');
+      let chosenMod = $(this).attr('player');
       which.setMod(new Robattle.Workbench[chosenMod]());
     });
 
@@ -40,7 +40,7 @@
 
     //on click, move to next view. When finished with one robot, print robot info to DOM, switch robots & start over
     $(".selection").click(function(e){
-    var nextChoice = $(this).attr("next");
+    let nextChoice = $(this).attr("next");
 
     //load battledome and fill in cards with robot info
     if (nextChoice === "battle_dome" && secondTime === true){
@@ -74,7 +74,7 @@
       } else if (allowance === "medium") {
         $(".heavyWeapon").hide();
       }
-    }
+    };
 
 
     //proceed to next page when selections are made. 
