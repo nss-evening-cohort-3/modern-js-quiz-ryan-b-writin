@@ -54,13 +54,19 @@
         this.integrity += this.frame.intBonus;
         this.integrity += this.spec.intBonus;
         this.integrity += this.mod.intBonus;
+        this.integrity += Math.floor(Math.random() * 30);
       };
 
       this.totalEvasion = function(enemy) {
-        this.evasion += this.frame.evasionBonus;
-        this.evasion += this.weapon.evasionBonus;
-        this.evasion += this.mod.evasionBonus;
-        this.evasion += enemy.mod.enemyEvasion;
+        let evasionMultiplier = 0;
+        evasionMultiplier += this.frame.evasionBonus;
+        evasionMultiplier += this.weapon.evasionBonus;
+        evasionMultiplier += this.mod.evasionBonus;
+        evasionMultiplier += enemy.mod.enemyEvasion;
+        this.evasion = Math.floor(Math.random() * (evasionMultiplier * 15));
+        if (this.evasion > 90) {
+          this.evasion = 90;
+        }
       };
 
       this.totalDamage = function(enemy) {
@@ -73,8 +79,6 @@
         }
       };
     };
-
-    
 
     return Robattle;
   })(RoboBattle || {} );

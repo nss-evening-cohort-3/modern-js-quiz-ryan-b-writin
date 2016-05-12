@@ -80,9 +80,22 @@
 
     //on clicking the proceed button, combat is joined
     $("#proceedBtn").click(function(){
-      champion.integrity -= challenger.damage;
-      challenger.integrity -= champion.damage;
-      $("#outputTarget").append(`<p>The champion hits for ${champion.damage}! The challenger hits for ${challenger.damage}!</p>`);
+      let randomSeed1 = Math.floor(Math.random() * 100);
+      let randomSeed2 = Math.floor(Math.random() * 100);
+      let champDamage = Math.floor((Math.random() * 10) + champion.damage);
+      let chumpDamage = Math.floor((Math.random() * 10) + challenger.damage);
+      if (randomSeed1 > challenger.evasion) {
+        challenger.integrity -= champDamage;
+        $("#outputTarget").append(`<p>The champion hits for ${champDamage}!`);
+      } else {
+        $("#outputTarget").append("<p>The champ misses!</p>");
+      }
+      if (randomSeed2 > champion.evasion) {
+        champion.integrity -= chumpDamage;
+        $("#outputTarget").append(`<p>The challenger hits for ${chumpDamage}!`);
+      } else {
+        $("#outputTarget").append("<p>The challenger misses!</p>");
+      }
       if (challenger.integrity < 1) {
         $("#proceedBtn").hide();
         $("#outputTarget").html("Aaaaand the challenger is DOWN! The champion wins again!");
@@ -105,6 +118,8 @@
       secondTime = false;
       $(".champOrChump").html("CHAMPION");
       which = champion;
+      champion.damage = 0;
+      challenger.damage = 0;
     });
 
     return Robattle;
