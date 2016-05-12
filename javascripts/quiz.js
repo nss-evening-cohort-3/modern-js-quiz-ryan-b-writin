@@ -42,6 +42,7 @@
     $(".selection").click(function(e){
     var nextChoice = $(this).attr("next");
 
+    //load battledome and fill in cards with robot info
     if (nextChoice === "battle_dome" && secondTime === true){
       champion.totalIntegrity();
       champion.totalDamage(challenger);
@@ -63,7 +64,7 @@
       $("#outputTarget").append(challenger.toString(), "<p>FIGHT!!!</p>");
     }
 
-
+    //function to limit weapon choices by frame choice
     var limitWeapons = function(allowance){
       $(".heavyWeapon").show();
       $(".medWeapon").show();
@@ -76,6 +77,8 @@
     }
 
 
+    //proceed to next page when selections are made. 
+    //return to page one for the challenger, limit weapons before loading weapon select
     if (nextChoice === "battle_dome" && secondTime === false) {
       $(".choice").hide();
       $(".frame_select").show();
@@ -97,10 +100,14 @@
 
     //on clicking the proceed button, combat is joined
     $("#proceedBtn").click(function(){
+
+      //random number seeds
       let randomSeed1 = Math.floor(Math.random() * 100);
       let randomSeed2 = Math.floor(Math.random() * 100);
       let champDamage = Math.floor((Math.random() * 10) + champion.damage);
       let chumpDamage = Math.floor((Math.random() * 10) + challenger.damage);
+
+      //resolve hits / misses and damage
       if (randomSeed1 > challenger.evasion) {
         challenger.integrity -= champDamage;
         $("#outputTarget").append(`<p>The champion hits for ${champDamage}!`);
@@ -113,6 +120,8 @@
       } else {
         $("#outputTarget").append("<p>The challenger misses!</p>");
       }
+
+      //end game and present reset button when a robot is disabled
       if (challenger.integrity < 1) {
         $("#proceedBtn").hide();
         $("#outputTarget").html("Aaaaand the challenger is DOWN! The champion wins again!");
@@ -129,6 +138,7 @@
       }
     });
 
+    //reset everything on click of reset button
     $(".reset").click(function(){
       $(".battle_dome").hide();
       $(".frame_select").show();
@@ -137,6 +147,7 @@
       which = champion;
       champion.damage = 0;
       challenger.damage = 0;
+      $("#outputTarget").html("");
     });
 
     return Robattle;
