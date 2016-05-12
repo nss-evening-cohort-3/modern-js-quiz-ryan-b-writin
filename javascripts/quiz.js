@@ -63,11 +63,28 @@
       $("#outputTarget").append(challenger.toString(), "<p>FIGHT!!!</p>");
     }
 
+
+    var limitWeapons = function(allowance){
+      $(".heavyWeapon").show();
+      $(".medWeapon").show();
+      if (allowance === "light") {
+        $(".heavyWeapon").hide();
+        $(".medWeapon").hide();
+      } else if (allowance === "medium") {
+        $(".heavyWeapon").hide();
+      }
+    }
+
+
     if (nextChoice === "battle_dome" && secondTime === false) {
       $(".choice").hide();
       $(".frame_select").show();
       Robattle.switchToChallenger();
       secondTime = true;
+    } else if (nextChoice === "weapon_select") {
+      $(".choice").hide();
+      $(".weapon_select").show();
+      limitWeapons(which.frame.allowedWeapons);
     } else {
       $(".choice").hide();
       $("." + nextChoice).show();
