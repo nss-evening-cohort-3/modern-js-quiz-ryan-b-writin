@@ -19,13 +19,13 @@
   border: 2px dashed black;
   box-sizing: border-box;
   min-height: 10em;
-  margin-top: 5em;
+  margin-top: 2em;
   padding: 1em;
 }
 
 .prompt {
   padding: 2em;
-  margin-top: 3em;
+  margin-top: 1em;
   font-size: 1.5em;
 }
 
@@ -35,4 +35,12 @@
   height: 20em;
   padding: .5em;
   text-align: left;
+  overflow: scroll;
+}
+
+.proceed {
+  border: 1px dashed black;
+  margin-top: 7em;
+  height: 6em;
+  padding: 2em;
 }

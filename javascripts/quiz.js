@@ -43,6 +43,18 @@
     var nextChoice = $(this).attr("next");
 
     if (nextChoice === "battle_dome" && secondTime === true){
+      champion.totalIntegrity();
+      champion.totalDamage(challenger);
+      champion.totalEvasion(challenger);
+      challenger.totalIntegrity();
+      challenger.totalDamage(champion);
+      challenger.totalEvasion(champion);
+      $(".cardFrame").html("Frame: "+champion.frame.name);
+      $(".cardSpec").html("Spec: "+champion.spec.name);
+      $(".cardWeapon").html("Weapon: "+champion.weapon);
+      $(".cardMod").html("Mod: "+champion.mod);
+      $(".cardIntegrity").html("Integrity: "+champion.integrity);
+      $("#outputTarget").append(champion.toString(), "<br>");
       $(".cardFrame2").html("Frame: "+challenger.frame.name);
       $(".cardSpec2").html("Spec: "+challenger.spec.name);
       $(".cardWeapon2").html("Weapon: "+challenger.weapon);
@@ -56,18 +68,44 @@
       $(".frame_select").show();
       Robattle.switchToChallenger();
       secondTime = true;
-      $(".cardFrame").html("Frame: "+champion.frame.name);
-      $(".cardSpec").html("Spec: "+champion.spec.name);
-      $(".cardWeapon").html("Weapon: "+champion.weapon);
-      $(".cardMod").html("Mod: "+champion.mod);
-      $(".cardIntegrity").html("Integrity: "+champion.integrity);
-      $("#outputTarget").append(champion.toString(), "<br>");
     } else {
       $(".choice").hide();
       $("." + nextChoice).show();
+        if (nextChoice === "battle_dome") {
+          $(".reset").hide();
+          $("#proceedBtn").show();
+        }
     }
     });
 
+    //on clicking the proceed button, combat is joined
+    $("#proceedBtn").click(function(){
+      champion.integrity -= challenger.damage;
+      challenger.integrity -= champion.damage;
+      $("#outputTarget").append(`<p>The champion hits for ${champion.damage}! The challenger hits for ${challenger.damage}!</p>`);
+      if (challenger.integrity < 1) {
+        $("#proceedBtn").hide();
+        $("#outputTarget").html("Aaaaand the challenger is DOWN! The champion wins again!");
+        $(".reset").show();
+        $(".cardIntegrity2").html("DISABLED");
+      } else if (champion.integrity < 1) {
+        $("#proceedBtn").hide();
+        $("#outputTarget").html("The champ goes down! CHAMP GOES DOWN! What an upset!");
+        $(".reset").show();
+        $(".cardIntegrity").html("DISABLED");
+      } else {
+        $(".cardIntegrity").html("Integrity: "+champion.integrity);
+        $(".cardIntegrity2").html("Integrity: "+challenger.integrity);
+      }
+    });
+
+    $(".reset").click(function(){
+      $(".battle_dome").hide();
+      $(".frame_select").show();
+      secondTime = false;
+      $(".champOrChump").html("CHAMPION");
+      which = champion;
+    });
 
     return Robattle;
   })(RoboBattle || {} );

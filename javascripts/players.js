@@ -27,12 +27,13 @@
         this.mod = chosenMod;
       };
 
+      var whichRobot = "";
       this.toString = function() {
         if (this.chump) {
-          var whichRobot = "challenger"
+          whichRobot = "challenger";
         } else {
-          var whichRobot = "champ"
-        };
+          whichRobot = "champ";
+        }
         var output = [
           "The ",
           whichRobot,
@@ -47,30 +48,33 @@
           "!"
         ].join("");
         return output;
-      }
+      };
 
       this.totalIntegrity = function() {
         this.integrity += this.frame.intBonus;
         this.integrity += this.spec.intBonus;
         this.integrity += this.mod.intBonus;
-      }
+      };
 
-      this.totalEvasion = function() {
+      this.totalEvasion = function(enemy) {
         this.evasion += this.frame.evasionBonus;
         this.evasion += this.weapon.evasionBonus;
         this.evasion += this.mod.evasionBonus;
-        console.log("evasion", this.evasion );
-      }
+        this.evasion += enemy.mod.enemyEvasion;
+      };
 
-      this.totalDamage = function() {
+      this.totalDamage = function(enemy) {
         this.damage += this.spec.damageBonus;
         this.damage += this.weapon.damage;
         this.damage += this.mod.damageBonus;
-        console.log("damage", this.damage );
-      }
+        this.damage += enemy.mod.enemyDamage;
+        if (this.damage < 1) {
+          this.damage = 1;
+        }
+      };
     };
 
-    var testDude = new Robattle.Combatants.Battler()
+    
 
     return Robattle;
   })(RoboBattle || {} );

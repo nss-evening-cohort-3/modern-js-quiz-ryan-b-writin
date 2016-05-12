@@ -13,14 +13,14 @@ var RoboBattle = (function(Robattle){
 
   Robattle.Garage.Military = function(){
     this.name = "Military";
-    this.damageBonus = 3
-  }
+    this.damageBonus = 3;
+  };
   Robattle.Garage.Military.prototype = new Robattle.Garage.Spec();
 
   Robattle.Garage.Industrial = function(){
-    this.name = "Industrial"
-    this.intBonus = 20
-  }
+    this.name = "Industrial";
+    this.intBonus = 20;
+  };
   Robattle.Garage.Industrial.prototype = new Robattle.Garage.Spec();
 
   return Robattle;
