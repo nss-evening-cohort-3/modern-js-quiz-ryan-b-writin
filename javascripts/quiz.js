@@ -33,7 +33,7 @@
 
 
     //function to switch selected robots
-    Robattle.switchToChallenger = function (){
+    Robattle.switchToChallenger = () => {
       $(".champOrChump").html("CHALLENGER");
       which = challenger;
     };
@@ -65,7 +65,7 @@
     }
 
     //function to limit weapon choices by frame choice
-    var limitWeapons = function(allowance){
+    var limitWeapons = allowance => {
       $(".heavyWeapon").show();
       $(".medWeapon").show();
       if (allowance === "light") {

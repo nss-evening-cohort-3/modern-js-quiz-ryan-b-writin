@@ -11,24 +11,24 @@
       this.evasion = 0;
       this.damage = 0;
 
-      this.setFrame = function(chosenFrame){
+      this.setFrame = chosenFrame => {
         this.frame = chosenFrame;
       };
 
-      this.setSpec = function(chosenSpec){
+      this.setSpec = chosenSpec => {
         this.spec = chosenSpec;
       };
       
-      this.setWeapon = function(chosenWeapon){
+      this.setWeapon = chosenWeapon => {
         this.weapon = chosenWeapon;
       };
 
-      this.setMod = function(chosenMod){
+      this.setMod = chosenMod => {
         this.mod = chosenMod;
       };
 
       let whichRobot = "";
-      this.toString = function() {
+      this.toString = () => {
         if (this.chump) {
           whichRobot = "challenger";
         } else {
@@ -50,14 +50,14 @@
         return output;
       };
 
-      this.totalIntegrity = function() {
+      this.totalIntegrity = () => {
         this.integrity += this.frame.intBonus;
         this.integrity += this.spec.intBonus;
         this.integrity += this.mod.intBonus;
         this.integrity += Math.floor(Math.random() * 30);
       };
 
-      this.totalEvasion = function(enemy) {
+      this.totalEvasion = enemy => {
         let evasionMultiplier = 0;
         evasionMultiplier += this.frame.evasionBonus;
         evasionMultiplier += this.weapon.evasionBonus;
@@ -69,7 +69,7 @@
         }
       };
 
-      this.totalDamage = function(enemy) {
+      this.totalDamage = enemy => {
         this.damage += this.spec.damageBonus;
         this.damage += this.weapon.damage;
         this.damage += this.mod.damageBonus;
